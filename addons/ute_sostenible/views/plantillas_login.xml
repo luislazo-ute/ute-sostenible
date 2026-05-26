@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="plantilla_login_layout_ute_sostenible" inherit_id="web.login_layout" name="Layout Login UTE Sostenible">
+        <xpath expr="//t[@t-set='body_classname']" position="replace">
+            <t t-set="body_classname" t-value="'o_ute_login_page'"/>
+        </xpath>
+    </template>
+
+    <template id="plantilla_login_ute_sostenible" inherit_id="web.login" name="Login UTE Sostenible">
+        <xpath expr="//form[@role='form']" position="before">
+            <div class="o_ute_login_bloque">
+                <img class="o_ute_login_logo" src="/ute_sostenible/static/src/img/logo_ute_login.png" alt="UTE Sostenible"/>
+                <div class="o_ute_login_texto">
+                    <span>Universidad UTE</span>
+                    <h1>UTE Sostenible</h1>
+                    <p>Administración de puntos ecológicos y registros de pesaje</p>
+                </div>
+                <div class="o_ute_login_indicadores">
+                    <span>Puntos ecológicos</span>
+                    <span>Pesajes internos</span>
+                    <span>Gestión ambiental</span>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

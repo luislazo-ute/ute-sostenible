@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="vista_categoria_lista" model="ir.ui.view">
+        <field name="name">ute_sostenible.categoria.lista</field>
+        <field name="model">ute_sostenible.categoria</field>
+        <field name="arch" type="xml">
+            <list string="Categorías">
+                <field name="nombre"/>
+                <field name="codigo"/>
+                <field name="activo"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="vista_categoria_formulario" model="ir.ui.view">
+        <field name="name">ute_sostenible.categoria.formulario</field>
+        <field name="model">ute_sostenible.categoria</field>
+        <field name="arch" type="xml">
+            <form string="Categoría">
+                <sheet>
+                    <group>
+                        <field name="nombre"/>
+                        <field name="codigo"/>
+                        <field name="descripcion"/>
+                        <field name="activo"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="vista_categoria_kanban" model="ir.ui.view">
+        <field name="name">ute_sostenible.categoria.kanban</field>
+        <field name="model">ute_sostenible.categoria</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <templates>
+                    <t t-name="card">
+                        <field name="nombre" class="fw-bold"/>
+                        <div class="text-muted">
+                            <field name="codigo"/>
+                        </div>
+                        <div>
+                            <field name="descripcion"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="accion_categoria" model="ir.actions.act_window">
+        <field name="name">Categorías</field>
+        <field name="res_model">ute_sostenible.categoria</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="mobile_view_mode">kanban</field>
+    </record>
+
+    <record id="vista_tipo_contenedor_lista" model="ir.ui.view">
+        <field name="name">ute_sostenible.tipo_contenedor.lista</field>
+        <field name="model">ute_sostenible.tipo_contenedor</field>
+        <field name="arch" type="xml">
+            <list string="Tipos de contenedor">
+                <field name="nombre"/>
+                <field name="codigo"/>
+                <field name="numero_contenedores"/>
+                <field name="color_senaletica"/>
+                <field name="costo_unitario"/>
+                <field name="costo_total"/>
+                <field name="activo"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="vista_tipo_contenedor_formulario" model="ir.ui.view">
+        <field name="name">ute_sostenible.tipo_contenedor.formulario</field>
+        <field name="model">ute_sostenible.tipo_contenedor</field>
+        <field name="arch" type="xml">
+            <form string="Tipo de contenedor">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="nombre"/>
+                            <field name="codigo"/>
+                            <field name="capacidad_litros"/>
+                            <field name="numero_contenedores"/>
+                            <field name="es_reutilizado"/>
+                            <field name="color_senaletica"/>
+                        </group>
+                        <group>
+                            <field name="moneda_id"/>
+                            <field name="costo_unitario"/>
+                            <field name="iva_porcentaje"/>
+                            <field name="costo_total" readonly="1"/>
+                            <field name="activo"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="descripcion"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="vista_tipo_contenedor_kanban" model="ir.ui.view">
+        <field name="name">ute_sostenible.tipo_contenedor.kanban</field>
+        <field name="model">ute_sostenible.tipo_contenedor</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <templates>
+                    <t t-name="card">
+                        <field name="nombre" class="fw-bold"/>
+                        <div class="text-muted">
+                            <field name="codigo"/>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Contenedores</span>
+                            <field name="numero_contenedores"/>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Costo total</span>
+                            <field name="costo_total"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="accion_tipo_contenedor" model="ir.actions.act_window">
+        <field name="name">Tipos de contenedor</field>
+        <field name="res_model">ute_sostenible.tipo_contenedor</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="mobile_view_mode">kanban</field>
+    </record>
+
+    <record id="vista_tipo_residuo_lista" model="ir.ui.view">
+        <field name="name">ute_sostenible.tipo_residuo.lista</field>
+        <field name="model">ute_sostenible.tipo_residuo</field>
+        <field name="arch" type="xml">
+            <list string="Tipos de residuo">
+                <field name="secuencia"/>
+                <field name="nombre"/>
+                <field name="codigo"/>
+                <field name="color_bolsa"/>
+                <field name="activo"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="vista_tipo_residuo_formulario" model="ir.ui.view">
+        <field name="name">ute_sostenible.tipo_residuo.formulario</field>
+        <field name="model">ute_sostenible.tipo_residuo</field>
+        <field name="arch" type="xml">
+            <form string="Tipo de residuo">
+                <sheet>
+                    <group>
+                        <field name="secuencia"/>
+                        <field name="nombre"/>
+                        <field name="codigo"/>
+                        <field name="color_bolsa"/>
+                        <field name="descripcion"/>
+                        <field name="activo"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="vista_tipo_residuo_kanban" model="ir.ui.view">
+        <field name="name">ute_sostenible.tipo_residuo.kanban</field>
+        <field name="model">ute_sostenible.tipo_residuo</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <templates>
+                    <t t-name="card">
+                        <field name="nombre" class="fw-bold"/>
+                        <div class="text-muted">
+                            <field name="codigo"/>
+                        </div>
+                        <div>
+                            <span>Bolsa: </span>
+                            <field name="color_bolsa"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="accion_tipo_residuo" model="ir.actions.act_window">
+        <field name="name">Tipos de residuo</field>
+        <field name="res_model">ute_sostenible.tipo_residuo</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="mobile_view_mode">kanban</field>
+    </record>
+</odoo>

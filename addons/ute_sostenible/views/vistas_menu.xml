@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="menu_ute_sostenible_raiz" name="UTE Sostenible" sequence="10" web_icon="ute_sostenible,static/src/img/icono_ute_sostenible.svg"/>
+
+    <menuitem id="menu_ute_sostenible_operacion" name="Operación" parent="menu_ute_sostenible_raiz" sequence="10"/>
+    <menuitem id="menu_ute_sostenible_configuracion" name="Configuración" parent="menu_ute_sostenible_raiz" sequence="90" groups="ute_sostenible.grupo_administrador_ute_sostenible"/>
+
+    <menuitem id="menu_registro_pesaje" name="Registros de pesaje" parent="menu_ute_sostenible_operacion" action="accion_registro_pesaje" sequence="10"/>
+    <menuitem id="menu_punto_ecologico" name="Puntos ecológicos" parent="menu_ute_sostenible_operacion" action="accion_punto_ecologico" sequence="20"/>
+
+    <record id="accion_plantillas_importacion" model="ir.actions.act_url">
+        <field name="name">Plantillas de importación</field>
+        <field name="url">/ute_sostenible/static/description/importacion.html</field>
+        <field name="target">self</field>
+    </record>
+
+    <menuitem id="menu_campus" name="Campus" parent="menu_ute_sostenible_configuracion" action="accion_campus" sequence="10"/>
+    <menuitem id="menu_bloque" name="Bloques / Edificios" parent="menu_ute_sostenible_configuracion" action="accion_bloque" sequence="20"/>
+    <menuitem id="menu_piso" name="Pisos" parent="menu_ute_sostenible_configuracion" action="accion_piso" sequence="30"/>
+    <menuitem id="menu_categoria" name="Categorías" parent="menu_ute_sostenible_configuracion" action="accion_categoria" sequence="40"/>
+    <menuitem id="menu_tipo_contenedor" name="Tipos de contenedor" parent="menu_ute_sostenible_configuracion" action="accion_tipo_contenedor" sequence="50"/>
+    <menuitem id="menu_tipo_residuo" name="Tipos de residuo" parent="menu_ute_sostenible_configuracion" action="accion_tipo_residuo" sequence="60"/>
+    <menuitem id="menu_plantillas_importacion" name="Plantillas de importación" parent="menu_ute_sostenible_configuracion" action="accion_plantillas_importacion" sequence="70"/>
+</odoo>

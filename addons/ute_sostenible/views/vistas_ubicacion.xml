@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="vista_campus_lista" model="ir.ui.view">
+        <field name="name">ute_sostenible.campus.lista</field>
+        <field name="model">ute_sostenible.campus</field>
+        <field name="arch" type="xml">
+            <list string="Campus">
+                <field name="nombre"/>
+                <field name="codigo"/>
+                <field name="activo"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="vista_campus_formulario" model="ir.ui.view">
+        <field name="name">ute_sostenible.campus.formulario</field>
+        <field name="model">ute_sostenible.campus</field>
+        <field name="arch" type="xml">
+            <form string="Campus">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="nombre"/>
+                            <field name="codigo" readonly="1"/>
+                            <field name="activo"/>
+                        </group>
+                        <group>
+                            <field name="descripcion"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Bloques">
+                            <field name="bloque_ids" readonly="1">
+                                <list>
+                                    <field name="nombre"/>
+                                    <field name="codigo"/>
+                                    <field name="activo"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="vista_campus_kanban" model="ir.ui.view">
+        <field name="name">ute_sostenible.campus.kanban</field>
+        <field name="model">ute_sostenible.campus</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <templates>
+                    <t t-name="card">
+                        <field name="nombre" class="fw-bold"/>
+                        <div class="text-muted">
+                            <field name="codigo"/>
+                        </div>
+                        <div>
+                            <field name="descripcion"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="accion_campus" model="ir.actions.act_window">
+        <field name="name">Campus</field>
+        <field name="res_model">ute_sostenible.campus</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="mobile_view_mode">kanban</field>
+    </record>
+
+    <record id="vista_bloque_lista" model="ir.ui.view">
+        <field name="name">ute_sostenible.bloque.lista</field>
+        <field name="model">ute_sostenible.bloque</field>
+        <field name="arch" type="xml">
+            <list string="Bloques / Edificios">
+                <field name="nombre"/>
+                <field name="codigo"/>
+                <field name="campus_id"/>
+                <field name="activo"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="vista_bloque_formulario" model="ir.ui.view">
+        <field name="name">ute_sostenible.bloque.formulario</field>
+        <field name="model">ute_sostenible.bloque</field>
+        <field name="arch" type="xml">
+            <form string="Bloque / Edificio">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="nombre"/>
+                            <field name="codigo" readonly="1"/>
+                            <field name="campus_id"/>
+                            <field name="activo"/>
+                        </group>
+                        <group>
+                            <field name="descripcion"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Pisos">
+                            <field name="piso_ids" readonly="1">
+                                <list>
+                                    <field name="nombre"/>
+                                    <field name="codigo"/>
+                                    <field name="activo"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="vista_bloque_kanban" model="ir.ui.view">
+        <field name="name">ute_sostenible.bloque.kanban</field>
+        <field name="model">ute_sostenible.bloque</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <templates>
+                    <t t-name="card">
+                        <field name="nombre" class="fw-bold"/>
+                        <div class="text-muted">
+                            <field name="campus_id"/>
+                        </div>
+                        <div>
+                            <field name="codigo"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="accion_bloque" model="ir.actions.act_window">
+        <field name="name">Bloques / Edificios</field>
+        <field name="res_model">ute_sostenible.bloque</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="mobile_view_mode">kanban</field>
+    </record>
+
+    <record id="vista_piso_lista" model="ir.ui.view">
+        <field name="name">ute_sostenible.piso.lista</field>
+        <field name="model">ute_sostenible.piso</field>
+        <field name="arch" type="xml">
+            <list string="Pisos">
+                <field name="nombre"/>
+                <field name="codigo"/>
+                <field name="bloque_id"/>
+                <field name="campus_id"/>
+                <field name="activo"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="vista_piso_formulario" model="ir.ui.view">
+        <field name="name">ute_sostenible.piso.formulario</field>
+        <field name="model">ute_sostenible.piso</field>
+        <field name="arch" type="xml">
+            <form string="Piso">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="nombre"/>
+                            <field name="codigo" readonly="1"/>
+                            <field name="bloque_id"/>
+                            <field name="campus_id"/>
+                            <field name="activo"/>
+                        </group>
+                        <group>
+                            <field name="descripcion"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="vista_piso_kanban" model="ir.ui.view">
+        <field name="name">ute_sostenible.piso.kanban</field>
+        <field name="model">ute_sostenible.piso</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <templates>
+                    <t t-name="card">
+                        <field name="nombre" class="fw-bold"/>
+                        <div class="text-muted">
+                            <field name="bloque_id"/>
+                        </div>
+                        <div>
+                            <field name="campus_id"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="accion_piso" model="ir.actions.act_window">
+        <field name="name">Pisos</field>
+        <field name="res_model">ute_sostenible.piso</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="mobile_view_mode">kanban</field>
+    </record>
+</odoo>

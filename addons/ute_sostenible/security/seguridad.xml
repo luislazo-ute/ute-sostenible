@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="privilegio_ute_sostenible" model="res.groups.privilege">
+        <field name="name">UTE Sostenible</field>
+        <field name="category_id" ref="base.module_category_esg"/>
+        <field name="sequence">20</field>
+    </record>
+
+    <record id="grupo_usuario_ute_sostenible" model="res.groups">
+        <field name="name">Usuario UTE Sostenible</field>
+        <field name="privilege_id" ref="privilegio_ute_sostenible"/>
+        <field name="sequence">10</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="grupo_administrador_ute_sostenible" model="res.groups">
+        <field name="name">Administrador UTE Sostenible</field>
+        <field name="privilege_id" ref="privilegio_ute_sostenible"/>
+        <field name="sequence">20</field>
+        <field name="implied_ids" eval="[(4, ref('grupo_usuario_ute_sostenible'))]"/>
+        <field name="implied_by_ids" eval="[(4, ref('base.group_system'))]"/>
+    </record>
+
+    <record id="regla_usuario_registro_pesaje_propio" model="ir.rule">
+        <field name="name">Usuario: registros de pesaje propios</field>
+        <field name="model_id" ref="model_ute_sostenible_registro_pesaje"/>
+        <field name="groups" eval="[(4, ref('grupo_usuario_ute_sostenible'))]"/>
+        <field name="domain_force">['|', ('responsable_id', '=', user.id), ('create_uid', '=', user.id)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <record id="regla_administrador_registro_pesaje_todos" model="ir.rule">
+        <field name="name">Administrador: todos los registros de pesaje</field>
+        <field name="model_id" ref="model_ute_sostenible_registro_pesaje"/>
+        <field name="groups" eval="[(4, ref('grupo_administrador_ute_sostenible'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="regla_usuario_linea_registro_pesaje_propio" model="ir.rule">
+        <field name="name">Usuario: líneas de registros de pesaje propios</field>
+        <field name="model_id" ref="model_ute_sostenible_linea_registro_pesaje"/>
+        <field name="groups" eval="[(4, ref('grupo_usuario_ute_sostenible'))]"/>
+        <field name="domain_force">['|', ('registro_id.responsable_id', '=', user.id), ('registro_id.create_uid', '=', user.id)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <record id="regla_administrador_linea_registro_pesaje_todos" model="ir.rule">
+        <field name="name">Administrador: todas las líneas de registros de pesaje</field>
+        <field name="model_id" ref="model_ute_sostenible_linea_registro_pesaje"/>
+        <field name="groups" eval="[(4, ref('grupo_administrador_ute_sostenible'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+</odoo>

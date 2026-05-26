@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+    <record id="categoria_general" model="ute_sostenible.categoria">
+        <field name="nombre">General</field>
+        <field name="codigo">GEN</field>
+        <field name="descripcion">Categoría general para puntos ecológicos.</field>
+    </record>
+
+    <record id="categoria_interior" model="ute_sostenible.categoria">
+        <field name="nombre">Interior</field>
+        <field name="codigo">INT</field>
+        <field name="descripcion">Puntos ubicados dentro de edificios o bloques.</field>
+    </record>
+
+    <record id="categoria_exterior" model="ute_sostenible.categoria">
+        <field name="nombre">Exterior</field>
+        <field name="codigo">EXT</field>
+        <field name="descripcion">Puntos ubicados en espacios abiertos.</field>
+    </record>
+
+    <record id="tipo_contenedor_triple" model="ute_sostenible.tipo_contenedor">
+        <field name="nombre">Contenedor triple</field>
+        <field name="codigo">TRIPLE</field>
+        <field name="numero_contenedores">3</field>
+        <field name="color_senaletica">Azul / Negro / Verde</field>
+        <field name="descripcion">Punto ecológico con tres contenedores.</field>
+    </record>
+
+    <record id="tipo_contenedor_reutilizado" model="ute_sostenible.tipo_contenedor">
+        <field name="nombre">Contenedor reutilizado</field>
+        <field name="codigo">REU</field>
+        <field name="numero_contenedores">1</field>
+        <field name="es_reutilizado">1</field>
+        <field name="descripcion">Contenedor existente que será reutilizado.</field>
+    </record>
+
+    <record id="tipo_residuo_reciclable" model="ute_sostenible.tipo_residuo">
+        <field name="nombre">Reciclable</field>
+        <field name="codigo">REC</field>
+        <field name="secuencia">10</field>
+        <field name="color_bolsa">azul</field>
+        <field name="descripcion">Residuos aprovechables o reciclables.</field>
+    </record>
+
+    <record id="tipo_residuo_no_reciclable" model="ute_sostenible.tipo_residuo">
+        <field name="nombre">No reciclable</field>
+        <field name="codigo">NREC</field>
+        <field name="secuencia">20</field>
+        <field name="color_bolsa">negra</field>
+        <field name="descripcion">Residuos no aprovechables.</field>
+    </record>
+
+    <record id="tipo_residuo_organico" model="ute_sostenible.tipo_residuo">
+        <field name="nombre">Orgánico</field>
+        <field name="codigo">ORG</field>
+        <field name="secuencia">30</field>
+        <field name="color_bolsa">verde</field>
+        <field name="descripcion">Residuos orgánicos.</field>
+    </record>
+</odoo>

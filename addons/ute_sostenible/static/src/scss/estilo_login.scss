@@ -1,0 +1,189 @@
+body.o_ute_login_page {
+    min-height: 100vh;
+    background:
+        linear-gradient(115deg, rgba(8, 44, 66, 0.92), rgba(20, 117, 91, 0.84)),
+        url("/ute_sostenible/static/src/img/logo_ute_login.png") right 8vw center / 440px auto no-repeat,
+        #f3f7f6;
+}
+
+.o_ute_login_page #wrapwrap,
+.o_ute_login_page main {
+    min-height: 100vh;
+}
+
+.o_ute_login_page .container.py-5 {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 16px !important;
+}
+
+.o_ute_login_page .o_database_list {
+    width: 100%;
+    max-width: 920px !important;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.44) !important;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.96) !important;
+    box-shadow: 0 24px 70px rgba(5, 35, 45, 0.24);
+}
+
+.o_ute_login_page .o_database_list .card-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+    gap: 0;
+    padding: 0;
+}
+
+.o_ute_login_page .o_database_list .card-body > .text-center.pb-3.border-bottom.mb-4 {
+    display: none;
+}
+
+.o_ute_login_bloque {
+    grid-row: 1 / span 4;
+    min-height: 560px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 48px;
+    color: #ffffff;
+    background:
+        linear-gradient(155deg, rgba(15, 94, 120, 0.92), rgba(30, 147, 91, 0.9)),
+        #0f5e78;
+}
+
+.o_ute_login_logo {
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+    padding: 14px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.o_ute_login_texto {
+    max-width: 360px;
+}
+
+.o_ute_login_texto span {
+    display: block;
+    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.o_ute_login_texto h1 {
+    margin: 0 0 14px;
+    color: #ffffff;
+    font-size: 2.4rem;
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: 0;
+}
+
+.o_ute_login_texto p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 1rem;
+    line-height: 1.55;
+}
+
+.o_ute_login_indicadores {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.o_ute_login_indicadores span {
+    padding: 8px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 6px;
+    color: rgba(255, 255, 255, 0.88);
+    background: rgba(255, 255, 255, 0.1);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.o_ute_login_page .oe_login_form,
+.o_ute_login_page .o_user_switch,
+.o_ute_login_page .o_database_list .card-body > .text-center.small {
+    margin: 0;
+    padding: 44px 42px 0;
+}
+
+.o_ute_login_page .o_database_list .card-body > .text-center.small {
+    padding-top: 22px;
+    padding-bottom: 30px;
+    border-top: 0 !important;
+}
+
+.o_ute_login_page .oe_login_form label {
+    color: #17343e;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.o_ute_login_page .oe_login_form .form-control {
+    min-height: 44px;
+    border-color: #cbd8d6;
+    border-radius: 6px;
+    background-color: #f7faf9;
+}
+
+.o_ute_login_page .oe_login_form .form-control:focus {
+    border-color: #1d9b6c;
+    box-shadow: 0 0 0 0.2rem rgba(29, 155, 108, 0.16);
+}
+
+.o_ute_login_page .oe_login_buttons .btn-primary {
+    min-height: 44px;
+    border: 0;
+    border-radius: 6px;
+    background: #1d8f68;
+    color: #ffffff;
+    font-weight: 800;
+}
+
+.o_ute_login_page .oe_login_buttons .btn-primary:hover,
+.o_ute_login_page .oe_login_buttons .btn-primary:focus {
+    background: #146d82;
+}
+
+.o_ute_login_page a {
+    color: #146d82;
+    font-weight: 600;
+}
+
+@media (max-width: 820px) {
+    body.o_ute_login_page {
+        background:
+            linear-gradient(150deg, rgba(8, 44, 66, 0.92), rgba(20, 117, 91, 0.86)),
+            #f3f7f6;
+    }
+
+    .o_ute_login_page .o_database_list .card-body {
+        grid-template-columns: 1fr;
+    }
+
+    .o_ute_login_bloque {
+        grid-row: auto;
+        min-height: auto;
+        padding: 28px;
+        gap: 28px;
+    }
+
+    .o_ute_login_texto h1 {
+        font-size: 2rem;
+    }
+
+    .o_ute_login_page .oe_login_form,
+    .o_ute_login_page .o_user_switch,
+    .o_ute_login_page .o_database_list .card-body > .text-center.small {
+        padding-right: 28px;
+        padding-left: 28px;
+    }
+}

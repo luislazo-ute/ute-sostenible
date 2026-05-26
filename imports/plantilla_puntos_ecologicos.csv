@@ -1,0 +1,2 @@
+escenario,campus,bloque,piso,ubicacion,descripcion,categoria,tipo_contenedor,cantidad_planificada,cantidad_instalada,costo_unitario
+Escenario inicial,Matriz,Bloque A,Piso 1,Entrada principal,Punto junto a ingreso,General,Contenedor triple,1,0,0

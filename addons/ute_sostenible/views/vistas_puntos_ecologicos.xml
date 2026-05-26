@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="vista_punto_ecologico_lista" model="ir.ui.view">
+        <field name="name">ute_sostenible.punto_ecologico.lista</field>
+        <field name="model">ute_sostenible.punto_ecologico</field>
+        <field name="arch" type="xml">
+            <list string="Puntos ecológicos">
+                <field name="nombre"/>
+                <field name="codigo"/>
+                <field name="campus_id"/>
+                <field name="bloque_id"/>
+                <field name="piso_id"/>
+                <field name="categoria_id"/>
+                <field name="tipo_contenedor_id"/>
+                <field name="cantidad_planificada"/>
+                <field name="cantidad_instalada"/>
+                <field name="costo_estimado"/>
+                <field name="estado"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="vista_punto_ecologico_formulario" model="ir.ui.view">
+        <field name="name">ute_sostenible.punto_ecologico.formulario</field>
+        <field name="model">ute_sostenible.punto_ecologico</field>
+        <field name="arch" type="xml">
+            <form string="Punto ecológico">
+                <header>
+                    <button name="accion_marcar_instalado" type="object" string="Marcar instalado" class="btn-primary" invisible="estado == 'instalado'"/>
+                    <button name="accion_marcar_planificado" type="object" string="Volver a planificado" invisible="estado == 'planificado'"/>
+                    <button name="accion_marcar_inactivo" type="object" string="Inactivar" invisible="estado == 'inactivo'"/>
+                    <field name="estado" widget="statusbar" statusbar_visible="planificado,instalado,inactivo"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="Ubicación">
+                            <field name="nombre"/>
+                            <field name="codigo" readonly="1"/>
+                            <field name="campus_id"/>
+                            <field name="bloque_id" domain="[('campus_id', '=', campus_id)]"/>
+                            <field name="piso_id" domain="[('bloque_id', '=', bloque_id)]"/>
+                        </group>
+                        <group string="Detalle">
+                            <field name="categoria_id"/>
+                            <field name="tipo_contenedor_id"/>
+                            <field name="cantidad_planificada"/>
+                            <field name="cantidad_instalada"/>
+                            <field name="moneda_id"/>
+                            <field name="costo_estimado" readonly="1"/>
+                            <field name="responsable_id"/>
+                            <field name="activo"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="descripcion"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="vista_punto_ecologico_kanban" model="ir.ui.view">
+        <field name="name">ute_sostenible.punto_ecologico.kanban</field>
+        <field name="model">ute_sostenible.punto_ecologico</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <templates>
+                    <t t-name="card">
+                        <field name="nombre" class="fw-bold"/>
+                        <div class="text-muted">
+                            <field name="codigo"/>
+                        </div>
+                        <div class="text-muted">
+                            <field name="campus_id"/>
+                            <span> / </span>
+                            <field name="bloque_id"/>
+                            <span> / </span>
+                            <field name="piso_id"/>
+                        </div>
+                        <div>
+                            <field name="categoria_id"/>
+                            <span> - </span>
+                            <field name="tipo_contenedor_id"/>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Planificada / instalada</span>
+                            <span>
+                                <field name="cantidad_planificada"/>
+                                <span> / </span>
+                                <field name="cantidad_instalada"/>
+                            </span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Estado</span>
+                            <field name="estado"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="accion_punto_ecologico" model="ir.actions.act_window">
+        <field name="name">Puntos ecológicos</field>
+        <field name="res_model">ute_sostenible.punto_ecologico</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="mobile_view_mode">kanban</field>
+    </record>
+</odoo>

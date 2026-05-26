@@ -1,6 +1,7 @@
 # UTE Sostenible - Odoo 19
 
-Proyecto base para administrar puntos ecológicos, escenarios de implementación y registros de pesaje en Odoo.
+Repositorio para el proyecto UTE Sostenible.
+Este proyecto implementa un sistema de gestión de residuos y puntos ecológicos basado en la plataforma Odoo 19, adaptado a los requerimientos de la Universidad UTE.
 
 ## 1. Levantar el ambiente local
 

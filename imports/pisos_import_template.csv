@@ -1,4 +1,4 @@
-External ID,Nombre,Bloque / Edificio/External ID,Activo
+id,nombre,bloque_id/id,activo
 ute_import.piso_occidental_a_pb,PB,ute_import.bloque_occidental_a,1
 ute_import.piso_occidental_a_1,1er piso,ute_import.bloque_occidental_a,1
 ute_import.piso_occidental_a_2,2do piso,ute_import.bloque_occidental_a,1

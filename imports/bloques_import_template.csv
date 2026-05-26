@@ -1,3 +1,3 @@
-External ID,Nombre,Campus/External ID,Activo
+id,nombre,campus_id/id,activo
 ute_import.bloque_occidental_a,Bloque A,ute_import.campus_occidental,1
 ute_import.bloque_matriz_parque_virgen,Parque de la virgen,ute_import.campus_matriz,1

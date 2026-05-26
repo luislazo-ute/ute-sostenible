@@ -20,6 +20,26 @@ Importar en este orden para que las relaciones Many2one existan antes de usarlas
 6. `tipos_residuo_import_template.csv`
 7. `puntos_ecologicos_import_template.csv`
 
+## Importante en servidor nuevo
+
+En un servidor nuevo, no crear manualmente los registros padre antes de importar.
+
+Primero importar `campus_import_template.csv`. Ese archivo crea los campus junto con su `id` externo, por ejemplo:
+
+```text
+ute_import.campus_occidental
+ute_import.campus_matriz
+```
+
+Luego `bloques_import_template.csv` puede usar esos valores en `campus_id/id`.
+
+Si se crean los campus manualmente desde la interfaz, Odoo crea el registro visible, pero no crea automaticamente el `id` externo. En ese caso, al importar bloques, pisos o puntos ecologicos puede aparecer un error indicando que no encuentra la relacion.
+
+Para evitar ese problema:
+
+- En base limpia: importar siempre desde el primer archivo, empezando por Campus.
+- Si alguien ya creo datos manuales: borrar esos datos de prueba o asignar los IDs externos antes de importar relaciones.
+
 ## Como entrar a cada lista
 
 Desde Odoo:
@@ -46,14 +66,14 @@ Luego subir un archivo `.csv` o `.xlsx`.
 
 Las columnas usan nombres compatibles con el importador de Odoo.
 
-El campo `External ID` permite crear un identificador estable para cada registro. Ese identificador se usa despues en las columnas relacionales como:
+El campo `id` permite crear un identificador externo estable para cada registro. Ese identificador se usa despues en las columnas relacionales como:
 
 ```text
-Campus/External ID
-Bloque / Edificio/External ID
-Piso/External ID
-Categoria/External ID
-Tipo de contenedor/External ID
+campus_id/id
+bloque_id/id
+piso_id/id
+categoria_id/id
+tipo_contenedor_id/id
 ```
 
 Ejemplo:
@@ -65,7 +85,7 @@ ute_import.campus_occidental
 Luego, cuando se importe un bloque, se puede indicar:
 
 ```text
-Campus/External ID = ute_import.campus_occidental
+campus_id/id = ute_import.campus_occidental
 ```
 
 Asi Odoo relaciona el bloque con el campus correcto sin depender del nombre visible.
@@ -86,24 +106,24 @@ Tipo
 Para importar puntos ecologicos, usar estas equivalencias:
 
 ```text
-Bloque -> Bloque / Edificio/External ID
-Piso -> Piso/External ID
-Descripcion -> Descripcion
-Categoria -> Categoria/External ID
-# -> Cantidad planificada
-Tipo -> Tipo de contenedor/External ID
+Bloque -> bloque_id/id
+Piso -> piso_id/id
+Descripcion -> descripcion
+Categoria -> categoria_id/id
+# -> cantidad_planificada
+Tipo -> tipo_contenedor_id/id
 ```
 
 El modelo no tiene un campo tecnico llamado `Ubicacion`. Para esa informacion se usa el campo:
 
 ```text
-Descripcion
+descripcion
 ```
 
 El modelo tampoco tiene un campo tecnico llamado `Cantidad`. Para esa informacion se usa:
 
 ```text
-Cantidad planificada
+cantidad_planificada
 ```
 
 ## Si Odoo no encuentra una relacion
@@ -111,7 +131,7 @@ Cantidad planificada
 Si aparece un mensaje como que Odoo no encuentra un campus, bloque, piso, categoria o tipo de contenedor:
 
 - Verificar que el archivo padre ya fue importado.
-- Verificar que el `External ID` este escrito igual en ambos archivos.
+- Verificar que el `id` este escrito igual en ambos archivos.
 - Evitar espacios al inicio o al final.
 - Respetar mayusculas, minusculas y guiones.
 - Usar el mismo prefijo, por ejemplo `ute_import.`.
@@ -120,10 +140,10 @@ Ejemplo correcto:
 
 ```text
 campus_import_template.csv
-External ID = ute_import.campus_occidental
+id = ute_import.campus_occidental
 
 bloques_import_template.csv
-Campus/External ID = ute_import.campus_occidental
+campus_id/id = ute_import.campus_occidental
 ```
 
 ## Recomendaciones para Excel
@@ -134,7 +154,7 @@ Tambien se puede guardar como `.csv`. Si se usa CSV:
 
 - Usar codificacion UTF-8.
 - No cambiar los encabezados.
-- No borrar la columna `External ID`.
+- No borrar la columna `id`.
 - Importar primero pocos registros para validar el mapeo.
 
 ## Mapeo manual
@@ -144,17 +164,17 @@ Si Odoo no reconoce automaticamente una columna, seleccionarla manualmente en la
 Mapeos tecnicos utiles:
 
 ```text
-External ID -> id
-Nombre -> nombre
-Activo -> activo
-Campus/External ID -> campus_id/id
-Bloque / Edificio/External ID -> bloque_id/id
-Piso/External ID -> piso_id/id
-Descripcion -> descripcion
-Categoria/External ID -> categoria_id/id
-Tipo de contenedor/External ID -> tipo_contenedor_id/id
-Cantidad planificada -> cantidad_planificada
-Costo unitario -> costo_unitario
+id -> ID externo
+nombre -> Nombre
+activo -> Activo
+campus_id/id -> Campus / ID externo
+bloque_id/id -> Bloque / Edificio / ID externo
+piso_id/id -> Piso / ID externo
+descripcion -> Descripcion
+categoria_id/id -> Categoria / ID externo
+tipo_contenedor_id/id -> Tipo de contenedor / ID externo
+cantidad_planificada -> Cantidad planificada
+costo_unitario -> Costo unitario
 ```
 
 ## Validar antes de importar todo

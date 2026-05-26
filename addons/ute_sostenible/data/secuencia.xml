@@ -2,7 +2,7 @@
 <odoo>
     <function model="ir.model.data" name="write">
         <function model="ir.model.data" name="search">
-            <value eval="[('module', '=', 'ute_sostenible'), ('name', 'in', ['secuencia_campus', 'secuencia_bloque', 'secuencia_piso', 'secuencia_punto_ecologico', 'secuencia_registro_pesaje'])]"/>
+            <value eval="[('module', '=', 'ute_sostenible'), ('name', 'in', ['secuencia_campus', 'secuencia_bloque', 'secuencia_piso', 'secuencia_categoria', 'secuencia_tipo_contenedor', 'secuencia_tipo_residuo', 'secuencia_punto_ecologico', 'secuencia_registro_pesaje'])]"/>
         </function>
         <value eval="{'noupdate': False}"/>
     </function>
@@ -12,6 +12,7 @@
         <field name="code">ute_sostenible.campus</field>
         <field name="prefix">CA-</field>
         <field name="padding">3</field>
+        <field name="implementation">no_gap</field>
     </record>
 
     <record id="secuencia_bloque" model="ir.sequence">
@@ -19,6 +20,7 @@
         <field name="code">ute_sostenible.bloque</field>
         <field name="prefix">BE-</field>
         <field name="padding">3</field>
+        <field name="implementation">no_gap</field>
     </record>
 
     <record id="secuencia_piso" model="ir.sequence">
@@ -26,6 +28,31 @@
         <field name="code">ute_sostenible.piso</field>
         <field name="prefix">PI-</field>
         <field name="padding">3</field>
+        <field name="implementation">no_gap</field>
+    </record>
+
+    <record id="secuencia_categoria" model="ir.sequence">
+        <field name="name">Categoría</field>
+        <field name="code">ute_sostenible.categoria</field>
+        <field name="prefix">CAT-</field>
+        <field name="padding">3</field>
+        <field name="implementation">no_gap</field>
+    </record>
+
+    <record id="secuencia_tipo_contenedor" model="ir.sequence">
+        <field name="name">Tipo de contenedor</field>
+        <field name="code">ute_sostenible.tipo_contenedor</field>
+        <field name="prefix">TCO-</field>
+        <field name="padding">3</field>
+        <field name="implementation">no_gap</field>
+    </record>
+
+    <record id="secuencia_tipo_residuo" model="ir.sequence">
+        <field name="name">Tipo de residuo</field>
+        <field name="code">ute_sostenible.tipo_residuo</field>
+        <field name="prefix">TRE-</field>
+        <field name="padding">3</field>
+        <field name="implementation">no_gap</field>
     </record>
 
     <record id="secuencia_punto_ecologico" model="ir.sequence">
@@ -33,6 +60,7 @@
         <field name="code">ute_sostenible.punto_ecologico</field>
         <field name="prefix">PEC-</field>
         <field name="padding">3</field>
+        <field name="implementation">no_gap</field>
     </record>
 
     <record id="secuencia_registro_pesaje" model="ir.sequence">
@@ -40,5 +68,6 @@
         <field name="code">ute_sostenible.registro_pesaje</field>
         <field name="prefix">RPE-</field>
         <field name="padding">3</field>
+        <field name="implementation">no_gap</field>
     </record>
 </odoo>

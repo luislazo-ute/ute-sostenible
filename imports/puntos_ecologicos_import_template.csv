@@ -1,4 +1,4 @@
-External ID,Nombre,Campus/External ID,Bloque / Edificio/External ID,Piso/External ID,Descripción,Categoría/External ID,Tipo de contenedor/External ID,Cantidad planificada,Activo
+id,nombre,campus_id/id,bloque_id/id,piso_id/id,descripcion,categoria_id/id,tipo_contenedor_id/id,cantidad_planificada,activo
 ute_import.punto_occ_a_pb_oficina_001,Oficina Bloque A PB,ute_import.campus_occidental,ute_import.bloque_occidental_a,ute_import.piso_occidental_a_pb,Oficina,ute_import.categoria_oficina,ute_import.tipo_contenedor_reutilizado_2,1,1
 ute_import.punto_occ_a_pb_pasillo_001,Pasillo Bloque A PB,ute_import.campus_occidental,ute_import.bloque_occidental_a,ute_import.piso_occidental_a_pb,Pasillo,ute_import.categoria_pasillo_pb,ute_import.tipo_contenedor_completo_50l,1,1
 ute_import.punto_occ_a_2_pasillo_001,Pasillo Bloque A 2do piso,ute_import.campus_occidental,ute_import.bloque_occidental_a,ute_import.piso_occidental_a_2,Pasillo,ute_import.categoria_pasillo,ute_import.tipo_contenedor_dual_50l,1,1

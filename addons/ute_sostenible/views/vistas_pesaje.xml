@@ -9,6 +9,7 @@
                 <field name="fecha"/>
                 <field name="hora" widget="float_time"/>
                 <field name="responsable_id"/>
+                <field name="origen_registro"/>
                 <field name="punto_ecologico_id"/>
                 <field name="bloque_id"/>
                 <field name="piso_id"/>
@@ -41,6 +42,7 @@
                             <field name="hora" widget="float_time"/>
                             <field name="responsable_id"/>
                             <field name="origen"/>
+                            <field name="origen_registro" readonly="1"/>
                         </group>
                         <group string="Ubicación">
                             <field name="punto_ecologico_id"/>
@@ -67,6 +69,14 @@
                             <group>
                                 <field name="observaciones"/>
                                 <field name="firma"/>
+                            </group>
+                        </page>
+                        <page string="Auditoría de importación" invisible="origen_registro != 'importacion_foto'">
+                            <group>
+                                <field name="importacion_foto_nombre"/>
+                                <field name="numero_linea_importada"/>
+                                <field name="foto_planilla_origen" widget="image"/>
+                                <field name="texto_origen_importacion"/>
                             </group>
                         </page>
                     </notebook>
@@ -115,5 +125,14 @@
         <field name="res_model">ute_sostenible.registro_pesaje</field>
         <field name="view_mode">list,kanban,form</field>
         <field name="mobile_view_mode">kanban</field>
+    </record>
+
+    <record id="accion_importacion_foto_pesaje_desde_registros" model="ir.actions.act_window">
+        <field name="name">Importar desde foto</field>
+        <field name="res_model">ute_sostenible.importacion_foto_pesaje</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+        <field name="binding_model_id" ref="model_ute_sostenible_registro_pesaje"/>
+        <field name="binding_type">action</field>
     </record>
 </odoo>

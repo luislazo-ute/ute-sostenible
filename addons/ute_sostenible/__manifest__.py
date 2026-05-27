@@ -23,6 +23,7 @@ Todo el módulo está nombrado en español a nivel funcional y técnico.
         "views/vistas_ubicacion.xml",
         "views/vistas_catalogos.xml",
         "views/vistas_puntos_ecologicos.xml",
+        "views/vistas_importacion_foto.xml",
         "views/vistas_pesaje.xml",
         "views/vistas_menu.xml",
     ],

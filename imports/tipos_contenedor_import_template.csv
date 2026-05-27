@@ -1,5 +1,10 @@
 id,nombre,costo_unitario,activo
-ute_import.tipo_contenedor_completo_50l,Completo 50 L,169.00,1
-ute_import.tipo_contenedor_dual_50l,Dual 50 L,149.00,1
-ute_import.tipo_contenedor_dual_50l_cubierto,Dual 50 L cubierto,170.00,1
-ute_import.tipo_contenedor_reutilizado_2,2 contenedores reutilizados con señalética y fundas distintas,5.00,1
+ute_import.tipo_contenedor_2_contenedores_reutilizados_con_senaletica_y_fundas_distintas,2 contenedores reutilizados con señalética y fundas distintas,5.00,1
+ute_import.tipo_contenedor_completo_50_l,Completo 50 L,169.00,1
+ute_import.tipo_contenedor_dual_50_l,Dual 50 L,149.00,1
+ute_import.tipo_contenedor_completo_50_l_cubierto,Completo 50 L Cubierto,169.00,1
+ute_import.tipo_contenedor_2_contenedores_reutilizados_sin_senalizar_oficina,2 contenedores reutilizados sin señalizar - oficina,0.00,1
+ute_import.tipo_contenedor_dual_50_l_cubierto,Dual 50 L Cubierto,170.00,1
+ute_import.tipo_contenedor_verde_50l,VERDE 50L,0.00,1
+ute_import.tipo_contenedor_3_contenedores_reutilizados_con_senaletica_y_fundas_distintas,3 contenedores reutilizados con señalética y fundas distintas,7.50,1
+ute_import.tipo_contenedor_contenedor_grande_reubicado_con_senaletica_azul_reciclables,Contenedor grande reubicado con señalética azul reciclables,2.50,1

@@ -1,4 +1,4 @@
 id,nombre,activo
-ute_sostenible.tipo_residuo_reciclable,Reciclable,1
-ute_sostenible.tipo_residuo_no_reciclable,No reciclable,1
-ute_sostenible.tipo_residuo_organico,Orgánico,1
+ute_import.tipo_residuo_reciclable,Reciclable,1
+ute_import.tipo_residuo_no_reciclable,No reciclable,1
+ute_import.tipo_residuo_organico,Orgánico,1

@@ -30,6 +30,24 @@ class RegistroPesaje(models.Model):
         required=True,
         tracking=True,
     )
+    foto_planilla_origen = fields.Binary(
+        string="Foto de planilla origen",
+        attachment=True,
+        readonly=True,
+    )
+    origen_registro = fields.Selection(
+        [
+            ("manual", "Manual"),
+            ("importacion_foto", "Importación desde foto"),
+        ],
+        string="Origen del registro",
+        default="manual",
+        required=True,
+        tracking=True,
+    )
+    numero_linea_importada = fields.Integer(string="N° de línea importada", readonly=True)
+    texto_origen_importacion = fields.Text(string="Texto origen importación", readonly=True)
+    importacion_foto_nombre = fields.Char(string="Importación desde foto", readonly=True)
     punto_ecologico_id = fields.Many2one(
         "ute_sostenible.punto_ecologico",
         string="Estación / Punto ecológico",

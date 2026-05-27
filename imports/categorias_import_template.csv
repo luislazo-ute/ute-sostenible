@@ -2,5 +2,7 @@ id,nombre,activo
 ute_import.categoria_oficina,Oficina,1
 ute_import.categoria_pasillo,Pasillo,1
 ute_import.categoria_pasillo_pb,Pasillo PB,1
-ute_sostenible.categoria_exterior,Exterior,1
-ute_import.categoria_organico,Generador de orgánico,1
+ute_import.categoria_exterior,Exterior,1
+ute_import.categoria_generador_de_organico,Generador de orgánico,1
+ute_import.categoria_lab_gastronomia,Lab. Gastronomía,1
+ute_import.categoria_lab_arquitectura,Lab. Arquitectura,1

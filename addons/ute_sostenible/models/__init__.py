@@ -3,3 +3,6 @@ from . import ubicacion
 from . import catalogos
 from . import puntos_ecologicos
 from . import pesaje
+from . import importacion_foto_ocr
+from . import importacion_foto
+from . import importacion_foto_linea

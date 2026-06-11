@@ -7,7 +7,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-odoo}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-odoo}
     volumes:
-      - datos_postgres:/var/lib/postgresql/data
+      - datos_postgres:/var/lib/postgresql
     ports:
       - "5435:5432"
     restart: unless-stopped

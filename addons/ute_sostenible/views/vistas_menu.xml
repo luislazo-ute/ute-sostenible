@@ -5,9 +5,9 @@
     <menuitem id="menu_ute_sostenible_operacion" name="Operación" parent="menu_ute_sostenible_raiz" sequence="10"/>
     <menuitem id="menu_ute_sostenible_configuracion" name="Configuración" parent="menu_ute_sostenible_raiz" sequence="90" groups="ute_sostenible.grupo_administrador_ute_sostenible"/>
 
-    <menuitem id="menu_registro_pesaje" name="Registros de pesaje" parent="menu_ute_sostenible_operacion" action="accion_registro_pesaje" sequence="10"/>
+    <menuitem id="menu_registro_pesaje" name="Registros de pesaje" parent="menu_ute_sostenible_operacion" action="accion_registro_pesaje" sequence="10" groups="ute_sostenible.grupo_administrador_ute_sostenible"/>
     <menuitem id="menu_punto_ecologico" name="Puntos ecológicos" parent="menu_ute_sostenible_operacion" action="accion_punto_ecologico" sequence="20"/>
-    <menuitem id="menu_importacion_foto_pesaje" name="Importar desde foto" parent="menu_ute_sostenible_operacion" action="accion_importacion_foto_pesaje" sequence="30"/>
+    <menuitem id="menu_importacion_foto_pesaje" name="Importar desde foto" parent="menu_ute_sostenible_operacion" action="accion_importacion_foto_pesaje" sequence="30" groups="ute_sostenible.grupo_administrador_ute_sostenible"/>
 
     <menuitem id="menu_campus" name="Campus" parent="menu_ute_sostenible_configuracion" action="accion_campus" sequence="10"/>
     <menuitem id="menu_bloque" name="Bloques / Edificios" parent="menu_ute_sostenible_configuracion" action="accion_bloque" sequence="20"/>

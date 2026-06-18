@@ -41,12 +41,12 @@
             .ute_sheet {
                 font-family: "DejaVu Sans", "Liberation Sans", Arial, sans-serif;
                 color: #111827;
-                font-size: 9px;
+                font-size: 8px;
             }
             .ute_header {
                 display: table;
                 width: 100%;
-                margin-bottom: 6px;
+                margin-bottom: 3px;
             }
             .ute_header_cell {
                 display: table-cell;
@@ -54,20 +54,20 @@
             }
             .ute_title {
                 text-align: center;
-                font-size: 18px;
+                font-size: 14px;
                 font-weight: 700;
                 letter-spacing: 0;
                 margin: 0;
             }
             .ute_subtitle {
                 text-align: center;
-                font-size: 11px;
-                margin-top: 2px;
+                font-size: 9px;
+                margin-top: 1px;
             }
             .ute_meta {
-                font-size: 8px;
+                font-size: 7px;
                 text-align: right;
-                line-height: 1.35;
+                line-height: 1.25;
             }
             .ute_table {
                 width: 100%;
@@ -77,23 +77,34 @@
             .ute_table th,
             .ute_table td {
                 border: 1px solid #111827;
-                padding: 2px 3px;
-                height: 18px;
+                padding: 1px 2px;
+                height: 15px;
+                line-height: 1.05;
                 vertical-align: middle;
+                font-size: 6.5px;
+                word-break: break-word;
+                overflow-wrap: break-word;
+            }
+            .ute_table tr {
+                page-break-inside: avoid;
             }
             .ute_table th {
                 text-align: center;
                 font-weight: 700;
                 background: #f3f4f6;
-                font-size: 8px;
+                font-size: 7px;
             }
             .ute_num {
                 text-align: center;
                 font-weight: 700;
                 color: #374151;
+                font-size: 8px;
             }
             .ute_center {
                 text-align: center;
+            }
+            .ute_estacion {
+                font-size: 6px;
             }
             .ute_time_hint {
                 color: #6b7280;
@@ -102,9 +113,9 @@
             .ute_hint {
                 display: table;
                 width: 100%;
-                margin-top: 5px;
-                font-size: 7.5px;
-                line-height: 1.25;
+                margin-top: 4px;
+                font-size: 6.5px;
+                line-height: 1.15;
             }
             .ute_hint_col {
                 display: table-cell;
@@ -114,8 +125,7 @@
             }
             .ute_box {
                 border: 1px solid #9ca3af;
-                padding: 4px;
-                min-height: 32px;
+                padding: 3px;
             }
             .ute_badge {
                 display: inline-block;
@@ -151,17 +161,17 @@
                 <thead>
                     <tr>
                         <th style="width: 3%;">No.</th>
-                        <th style="width: 8%;">Fecha<br/>DD/MM/AAAA</th>
-                        <th style="width: 6%;">Hora<br/>24h</th>
-                        <th style="width: 11%;">Responsable</th>
+                        <th style="width: 7%;">Fecha<br/>DD/MM/AAAA</th>
+                        <th style="width: 5%;">Hora<br/>24h</th>
+                        <th style="width: 9%;">Responsable</th>
                         <th style="width: 10%;">Edificio</th>
-                        <th style="width: 7%;">Piso</th>
-                        <th style="width: 12%;">Estacion</th>
-                        <th style="width: 7%;">Bolsa azul<br/>kg</th>
-                        <th style="width: 7%;">Bolsa negra<br/>kg</th>
-                        <th style="width: 7%;">Bolsa verde<br/>kg</th>
-                        <th style="width: 14%;">Observaciones</th>
-                        <th style="width: 8%;">Firma</th>
+                        <th style="width: 6%;">Piso</th>
+                        <th style="width: 18%;">Estacion</th>
+                        <th style="width: 6%;">Bolsa azul<br/>kg</th>
+                        <th style="width: 6%;">Bolsa negra<br/>kg</th>
+                        <th style="width: 6%;">Bolsa verde<br/>kg</th>
+                        <th style="width: 13%;">Observaciones</th>
+                        <th style="width: 10%;">Firma</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -173,7 +183,7 @@
                             <td></td>
                             <td class="ute_center"><t t-esc="fila['edificio']"/></td>
                             <td class="ute_center"><t t-esc="fila['piso']"/></td>
-                            <td><t t-esc="fila['estacion']"/></td>
+                            <td class="ute_estacion"><t t-esc="fila['estacion']"/></td>
                             <td></td>
                             <td></td>
                             <td></td>

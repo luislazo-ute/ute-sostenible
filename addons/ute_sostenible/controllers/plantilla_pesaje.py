@@ -8,7 +8,7 @@ class PlantillaPesajeController(http.Controller):
         type="http",
         auth="user",
     )
-    def descargar_plantilla_pesaje(self, fecha=None, **kwargs):
+    def descargar_plantilla_pesaje(self, fecha=None, campus_id=None, **kwargs):
         usuario = request.env.user
         if not (
             usuario.has_group("ute_sostenible.grupo_usuario_ute_sostenible")
@@ -20,7 +20,7 @@ class PlantillaPesajeController(http.Controller):
         pdf, _content_type = report._render_qweb_pdf(
             report.report_name,
             [],
-            data={"fecha_planilla": fecha},
+            data={"fecha_planilla": fecha, "campus_id": campus_id},
         )
         headers = [
             ("Content-Type", "application/pdf"),

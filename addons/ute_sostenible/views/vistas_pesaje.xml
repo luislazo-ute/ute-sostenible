@@ -8,9 +8,10 @@
                 <sheet>
                     <group>
                         <field name="fecha"/>
+                        <field name="campus_id"/>
                     </group>
                     <p class="text-muted">
-                        La fecha se imprimirá en todas las filas de la plantilla. La hora quedará como __:__ para completar manualmente.
+                        Se imprime la planilla del campus seleccionado con sus estaciones (edificio, piso y estación) ya impresas en orden. La fecha se imprime en todas las filas y la hora queda como __:__ para completar manualmente. Si el campus tiene más de 28 estaciones se generan varias hojas de 28 filas para poder escanearlas por separado.
                     </p>
                 </sheet>
                 <footer>

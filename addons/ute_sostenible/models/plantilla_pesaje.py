@@ -1,3 +1,5 @@
+from markupsafe import Markup, escape
+
 from odoo import api, fields, models
 
 
@@ -34,6 +36,22 @@ class ReportePlantillaPesaje(models.AbstractModel):
     FILAS_POR_HOJA = 28
 
     @api.model
+    def _texto_html(self, valor):
+        """Devuelve el texto seguro para HTML con los caracteres no ASCII
+        convertidos a entidades numericas (por ejemplo 'í' -> '&#237;').
+
+        Las entidades numericas se renderizan igual sin importar la
+        codificacion que reciba wkhtmltopdf, asi que las tildes y la 'ñ'
+        salen bien en el PDF aunque al motor no le llegue el charset UTF-8.
+        """
+        if not valor:
+            return ""
+        escapado = str(escape(valor))
+        return Markup(
+            "".join(caracter if ord(caracter) < 128 else f"&#{ord(caracter)};" for caracter in escapado)
+        )
+
+    @api.model
     def _get_report_values(self, docids, data=None):
         data = data or {}
         fecha = data.get("fecha_planilla")
@@ -67,9 +85,9 @@ class ReportePlantillaPesaje(models.AbstractModel):
                 filas.append(
                     {
                         "numero": indice + 1,
-                        "edificio": punto.bloque_id.nombre if punto else "",
-                        "piso": punto.piso_id.nombre if punto else "",
-                        "estacion": punto.nombre if punto else "",
+                        "edificio": self._texto_html(punto.bloque_id.nombre) if punto else "",
+                        "piso": self._texto_html(punto.piso_id.nombre) if punto else "",
+                        "estacion": self._texto_html(punto.nombre) if punto else "",
                     }
                 )
             paginas.append(filas)
@@ -79,7 +97,7 @@ class ReportePlantillaPesaje(models.AbstractModel):
             "doc_model": "ute_sostenible.plantilla_pesaje_wizard",
             "docs": self.env["ute_sostenible.plantilla_pesaje_wizard"].browse([]),
             "fecha_planilla_texto": fecha_texto,
-            "campus_nombre": campus.nombre or "",
+            "campus_nombre": self._texto_html(campus.nombre),
             "paginas": paginas,
             "total_paginas": len(paginas),
             "total_estaciones": total,

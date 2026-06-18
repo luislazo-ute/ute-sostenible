@@ -144,7 +144,7 @@
                 <div class="ute_header_cell" style="width: 60%;">
                     <h1 class="ute_title">Registro interno de pesaje</h1>
                     <div class="ute_subtitle">
-                        <strong t-esc="campus_nombre and ('Campus: ' + campus_nombre) or 'Campus'"/>
+                        <strong t-out="campus_nombre and ('Campus: ' + campus_nombre) or 'Campus'"/>
                     </div>
                     <div class="ute_subtitle" style="font-size: 9px;">Planilla fisica para importacion desde foto</div>
                 </div>
@@ -181,9 +181,9 @@
                             <td class="ute_center"><t t-esc="fecha_planilla_texto"/></td>
                             <td class="ute_center ute_time_hint">__:__</td>
                             <td></td>
-                            <td class="ute_center"><t t-esc="fila['edificio']"/></td>
-                            <td class="ute_center"><t t-esc="fila['piso']"/></td>
-                            <td class="ute_estacion"><t t-esc="fila['estacion']"/></td>
+                            <td class="ute_center"><t t-out="fila['edificio']"/></td>
+                            <td class="ute_center"><t t-out="fila['piso']"/></td>
+                            <td class="ute_estacion"><t t-out="fila['estacion']"/></td>
                             <td></td>
                             <td></td>
                             <td></td>

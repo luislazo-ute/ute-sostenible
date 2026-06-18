@@ -6,3 +6,4 @@ from . import pesaje
 from . import importacion_foto_ocr
 from . import importacion_foto
 from . import importacion_foto_linea
+from . import plantilla_pesaje

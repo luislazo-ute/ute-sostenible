@@ -25,6 +25,7 @@ Todo el módulo está nombrado en español a nivel funcional y técnico.
         "views/vistas_puntos_ecologicos.xml",
         "views/vistas_importacion_foto.xml",
         "views/vistas_pesaje.xml",
+        "report/plantilla_pesaje_report.xml",
         "views/vistas_menu.xml",
     ],
     "assets": {

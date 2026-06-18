@@ -1,10 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <record id="vista_plantilla_pesaje_wizard_formulario" model="ir.ui.view">
+        <field name="name">ute_sostenible.plantilla_pesaje_wizard.formulario</field>
+        <field name="model">ute_sostenible.plantilla_pesaje_wizard</field>
+        <field name="arch" type="xml">
+            <form string="Plantilla de pesaje">
+                <sheet>
+                    <group>
+                        <field name="fecha"/>
+                    </group>
+                    <p class="text-muted">
+                        La fecha se imprimirá en todas las filas de la plantilla. La hora quedará como __:__ para completar manualmente.
+                    </p>
+                </sheet>
+                <footer>
+                    <button name="action_imprimir_plantilla" type="object" string="Imprimir plantilla" class="btn-primary"/>
+                    <button string="Cancelar" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="accion_plantilla_pesaje_wizard" model="ir.actions.act_window">
+        <field name="name">Plantilla de pesaje</field>
+        <field name="res_model">ute_sostenible.plantilla_pesaje_wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
     <record id="vista_registro_pesaje_lista" model="ir.ui.view">
         <field name="name">ute_sostenible.registro_pesaje.lista</field>
         <field name="model">ute_sostenible.registro_pesaje</field>
         <field name="arch" type="xml">
             <list string="Registros de pesaje">
+                <header>
+                    <button name="%(accion_plantilla_pesaje_wizard)d" type="action" string="Plantilla PDF" class="btn-primary"/>
+                </header>
                 <field name="numero"/>
                 <field name="fecha"/>
                 <field name="hora" widget="float_time"/>
@@ -25,6 +56,7 @@
         <field name="arch" type="xml">
             <form string="Registro de pesaje">
                 <header>
+                    <button name="%(accion_plantilla_pesaje_wizard)d" type="action" string="Plantilla PDF" class="btn-secondary"/>
                     <button name="accion_confirmar" type="object" string="Confirmar" class="btn-primary" invisible="estado != 'borrador'"/>
                     <button name="accion_cancelar" type="object" string="Cancelar" invisible="estado == 'cancelado'"/>
                     <button name="accion_volver_borrador" type="object" string="Volver a borrador" invisible="estado == 'borrador'"/>

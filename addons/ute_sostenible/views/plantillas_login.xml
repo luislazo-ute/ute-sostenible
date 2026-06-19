@@ -4,6 +4,7 @@
         <xpath expr="//t[@t-set='body_classname']" position="replace">
             <t t-set="body_classname" t-value="'o_ute_login_page'"/>
         </xpath>
+        <xpath expr="//a[@href='/web/database/manager']" position="replace"/>
     </template>
 
     <template id="plantilla_login_ute_sostenible" inherit_id="web.login" name="Login UTE Sostenible">

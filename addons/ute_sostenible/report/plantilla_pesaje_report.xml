@@ -150,6 +150,7 @@
                     <h1 class="ute_title">Registro interno de pesaje</h1>
                     <div class="ute_subtitle">
                         <strong t-out="campus_nombre and ('Campus: ' + campus_nombre) or 'Campus'"/>
+                        <t t-if="bloque_nombre"><strong t-out="'   -   Edificio: ' + bloque_nombre"/></t>
                     </div>
                     <div class="ute_subtitle" style="font-size: 9px;">Planilla fisica para importacion desde foto</div>
                 </div>

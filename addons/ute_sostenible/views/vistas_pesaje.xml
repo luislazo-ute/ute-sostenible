@@ -9,13 +9,15 @@
                     <group>
                         <field name="fecha"/>
                         <field name="campus_id"/>
+                        <field name="bloque_id" domain="[('campus_id', '=', campus_id)]" readonly="not campus_id"/>
                     </group>
                     <p class="text-muted">
-                        Se imprime la planilla del campus seleccionado con sus estaciones (edificio, piso y estación) ya impresas en orden. La fecha se imprime en todas las filas y la hora queda como __:__ para completar manualmente. Si el campus tiene más de 28 estaciones se generan varias hojas de 28 filas para poder escanearlas por separado.
+                        Se imprime la planilla del campus seleccionado con sus estaciones (edificio, piso y estación) ya impresas en orden. Si además se elige un bloque/edificio, la planilla sale solo de ese bloque; si se deja vacío, salen todas las estaciones del campus. La fecha se imprime en todas las filas y la hora queda como __:__ para completar manualmente. Si el campus tiene más de 28 estaciones se generan varias hojas de 28 filas para poder escanearlas por separado. También puede exportar la planilla a Excel.
                     </p>
                 </sheet>
                 <footer>
-                    <button name="action_imprimir_plantilla" type="object" string="Imprimir plantilla" class="btn-primary"/>
+                    <button name="action_imprimir_plantilla" type="object" string="Imprimir plantilla (PDF)" class="btn-primary"/>
+                    <button name="action_exportar_excel" type="object" string="Exportar Excel" class="btn-secondary"/>
                     <button string="Cancelar" special="cancel"/>
                 </footer>
             </form>
